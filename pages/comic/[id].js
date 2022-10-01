@@ -1,21 +1,18 @@
 import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
-import { Header } from "components/Header"
 import { readFile, stat, readdir } from 'fs/promises'
 import { basename } from "path"
+import { Layout } from "components/Layout"
 
 export default function Comic({ img, alt, title, width, height, nextId, prevId, hasNext, hasPrevious }) {
   return <>
     <Head>
       <title>xkcd - Comics for developers</title>
       <meta name="description" content="Comics for Developers" />
-      <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <Header />
-
-    <main>
+    <Layout>
       <section className="max-w-lg m-auto">
         <h1 className="font-bold text-center text-xl mb-4">{title}</h1>
         <div className="max-w-xs m-auto mb-4">
@@ -37,7 +34,7 @@ export default function Comic({ img, alt, title, width, height, nextId, prevId, 
         </div>
 
       </section>
-    </main>
+    </Layout>
   </>
 }
 
