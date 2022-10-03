@@ -2,6 +2,7 @@ import { Layout } from "components/Layout"
 import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
+import { search } from "services/search"
 
 export default function Search({ query, results }) {
   return <>
