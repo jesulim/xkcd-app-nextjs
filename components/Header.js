@@ -1,6 +1,16 @@
 import Link from "next/link";
 
 export function Header() {
+
+  const [results, setResuls] = useState([])
+
+  const handleChange = () => {
+    fetch(`/api/search?q=${q}`)
+      .then(res => res.json())
+      .then(results => {
+        setResuls(results)
+      })
+  }
   return (
     <header className="flex justify-between items-center p-4 max-w-xl m-auto">
       <h1 className="font-bold">
@@ -16,7 +26,7 @@ export function Header() {
             <Link href='/'><a className="text-sm font-semibold">Home</a></Link>
           </li>
           <li>
-            <Link href='/search'><a className="text-sm font-semibold">Search</a></Link>
+            <input type='search' onChange={handleChange} />
           </li>
         </ul>
       </nav>
